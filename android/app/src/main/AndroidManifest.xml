@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.eklavya">
    <application
-        android:label="eklavya"
+        android:label="Eklavya"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"
