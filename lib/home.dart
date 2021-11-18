@@ -1,4 +1,7 @@
 import 'package:bubble_bottom_bar/bubble_bottom_bar.dart';
+import 'package:eklavya/screens/mentorship.dart';
+import 'package:eklavya/screens/opportunities.dart';
+import 'package:eklavya/screens/roadmap.dart';
 import 'package:flutter/material.dart';
 
 class Home extends StatefulWidget {
@@ -20,17 +23,7 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: <Widget>[
-        Container(
-          color: Colors.orangeAccent,
-        ),
-        Container(
-          color: Colors.greenAccent,
-        ),
-        Container(
-          color: Colors.grey,
-        )
-      ][currentIndex],
+      body: <Widget>[Roadmap(), Opportunities(), Mentorship()][currentIndex],
       bottomNavigationBar: BubbleBottomBar(
         opacity: 0.1,
         currentIndex: currentIndex,
@@ -39,38 +32,38 @@ class _HomeState extends State<Home> {
         elevation: 8,
         items: <BubbleBottomBarItem>[
           BubbleBottomBarItem(
-              backgroundColor: Colors.red,
+              backgroundColor: Colors.grey,
               icon: Icon(
-                Icons.dashboard,
+                Icons.alt_route,
                 color: Colors.black,
               ),
               activeIcon: Icon(
-                Icons.dashboard,
-                color: Colors.red,
+                Icons.alt_route,
+                color: Colors.black,
               ),
-              title: Text("Home")),
+              title: Text("Roadmap")),
           BubbleBottomBarItem(
-              backgroundColor: Colors.deepPurple,
+              backgroundColor: Colors.grey,
               icon: Icon(
-                Icons.access_time,
+                Icons.lightbulb,
                 color: Colors.black,
               ),
               activeIcon: Icon(
-                Icons.access_time,
-                color: Colors.deepPurple,
+                Icons.lightbulb,
+                color: Colors.black,
               ),
-              title: Text("Home2")),
+              title: Text("Opportunities")),
           BubbleBottomBarItem(
-              backgroundColor: Colors.indigo,
+              backgroundColor: Colors.grey,
               icon: Icon(
-                Icons.folder_open,
+                Icons.people,
                 color: Colors.black,
               ),
               activeIcon: Icon(
-                Icons.folder_open,
-                color: Colors.indigo,
+                Icons.people,
+                color: Colors.black,
               ),
-              title: Text("Home3")),
+              title: Text("Mentorship")),
         ],
       ),
     );
