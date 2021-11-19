@@ -5,10 +5,10 @@ class JobCard extends StatelessWidget {
 
   const JobCard(
       {Key? key,
-      this.logoUrl = "",
-      this.job = "",
-      this.time = "",
-      this.company = ""})
+      this.logoUrl = "assets/uberLogo.jpg",
+      this.job = "Software Developer Intern",
+      this.time = "19th November",
+      this.company = "Uber"})
       : super(key: key);
 
   @override
