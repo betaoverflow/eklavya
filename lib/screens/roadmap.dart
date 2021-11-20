@@ -23,7 +23,7 @@ class _RoadmapState extends State<Roadmap> {
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(20),
                   image: DecorationImage(
-                    image: AssetImage('assets/uberLogo.jpg'),
+                    image: AssetImage('assets/astronauts.png'),
                     fit: BoxFit.cover,
                   )),
               child: Container(
@@ -38,13 +38,39 @@ class _RoadmapState extends State<Roadmap> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
+                    SizedBox(
+                      height: 20,
+                    ),
                     Text(
                       "Jumpstart now",
                       style: TextStyle(
                           color: Colors.white,
                           fontSize: 40,
                           fontWeight: FontWeight.bold),
-                    )
+                    ),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    Container(
+                      height: 60,
+                      margin: EdgeInsets.symmetric(horizontal: 40),
+                      decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(10)),
+                      child: Center(
+                        child: Text(
+                          "Get Started",
+                          style: TextStyle(
+                              color: Colors.grey[900],
+                              fontWeight: FontWeight.bold,
+                              fontSize: 15),
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    GridView.count(crossAxisCount: 2)
                   ],
                 ),
               ),
