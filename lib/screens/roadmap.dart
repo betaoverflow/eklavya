@@ -1,3 +1,4 @@
+import 'package:eklavya/screens/timeline.dart';
 import 'package:flutter/material.dart';
 
 class Roadmap extends StatefulWidget {
@@ -91,15 +92,25 @@ class _RoadmapState extends State<Roadmap> {
                 crossAxisSpacing: 10,
                 mainAxisSpacing: 10,
                 children: _listItem
-                    .map((item) => Card(
-                          color: Colors.transparent,
-                          elevation: 0,
-                          child: Container(
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(20),
-                                image: DecorationImage(
-                                    image: AssetImage(item),
-                                    fit: BoxFit.cover)),
+                    .map((item) => GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) =>
+                                      SecondRoute(item: item)),
+                            );
+                          },
+                          child: Card(
+                            color: Colors.transparent,
+                            elevation: 0,
+                            child: Container(
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(20),
+                                  image: DecorationImage(
+                                      image: AssetImage(item),
+                                      fit: BoxFit.cover)),
+                            ),
                           ),
                         ))
                     .toList(),
@@ -109,5 +120,10 @@ class _RoadmapState extends State<Roadmap> {
         ),
       ),
     );
+  }
+
+  _onLocationTap(BuildContext context, String locationID) {
+    // TODO later in this lesson, navigation!
+    print('do something');
   }
 }
