@@ -8,15 +8,12 @@ class SecondRoute extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: Text("Second Route"),
-        ),
         body: Center(
-          child: Container(
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20),
-                  image: DecorationImage(
-                      image: AssetImage(item), fit: BoxFit.cover))),
-        ));
+      child: Container(
+          decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(20),
+              image:
+                  DecorationImage(image: AssetImage(item), fit: BoxFit.cover))),
+    ));
   }
 }
