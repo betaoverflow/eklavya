@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:eklavya/config/color.dart';
 import 'package:eklavya/config/fonts.dart';
 
 class Ratings extends StatelessWidget {
@@ -9,11 +8,8 @@ class Ratings extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
-      children: List.generate(
-              ratings.toInt(),
-              (index) =>
-                  Icon(MIcons.star_fill_16, size: 12, color: MColor.yellow))
-          .toList(),
+      children:
+          List.generate(ratings.toInt(), (index) => Icon(Icons.star)).toList(),
     );
   }
 }
