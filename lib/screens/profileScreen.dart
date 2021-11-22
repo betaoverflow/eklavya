@@ -1,3 +1,4 @@
+import 'package:eklavya/screens/roadmap.dart';
 import 'package:flutter/material.dart';
 import 'package:eklavya/config/constants.dart';
 import 'package:eklavya/config/fonts.dart';
@@ -159,13 +160,18 @@ class ProfilePage extends StatelessWidget {
     );
   }
 
-  Widget _button() {
+  Widget _button(context) {
     return TextButton(
       style: TextButton.styleFrom(
           backgroundColor: Colors.black,
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(20))),
-      onPressed: () {},
+      onPressed: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => Roadmap()),
+        );
+      },
       child: Container(
         height: 60,
         alignment: Alignment.center,
@@ -195,7 +201,7 @@ class ProfilePage extends StatelessWidget {
                 _description(),
                 SizedBox(height: 40),
                 _achivment(),
-                _button(),
+                _button(context),
                 SizedBox(height: 20),
               ],
             ),
