@@ -1,3 +1,4 @@
+import 'package:eklavya/screens/onboardingScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:eklavya/home.dart';
 
@@ -8,7 +9,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Home(),
+      home: Onboarding(),
     );
   }
 }
