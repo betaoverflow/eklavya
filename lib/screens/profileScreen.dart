@@ -160,10 +160,12 @@ class ProfilePage extends StatelessWidget {
   }
 
   Widget _button() {
-    return FlatButton(
-      color: Colors.black,
+    return TextButton(
+      style: TextButton.styleFrom(
+          backgroundColor: Colors.black,
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(20))),
       onPressed: () {},
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
       child: Container(
         height: 60,
         alignment: Alignment.center,
