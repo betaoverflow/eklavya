@@ -1,8 +1,6 @@
-import 'package:eklavya/screens/roadmap.dart';
+import 'package:eklavya/screens/loginScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:eklavya/config/constants.dart';
-import 'package:eklavya/config/fonts.dart';
-import 'package:eklavya/model/mentor.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class ProfilePage extends StatelessWidget {
@@ -169,7 +167,7 @@ class ProfilePage extends StatelessWidget {
       onPressed: () {
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => Roadmap()),
+          MaterialPageRoute(builder: (context) => LoginScreen()),
         );
       },
       child: Container(
