@@ -1,5 +1,5 @@
 import 'package:eklavya/screens/auth/Methods.dart';
-import 'package:eklavya/screens/mentorship.dart';
+import 'package:eklavya/screens/chatRoom.dart';
 import 'package:flutter/material.dart';
 
 class CreateAccount extends StatefulWidget {
@@ -126,7 +126,7 @@ class _CreateAccountState extends State<CreateAccount> {
                 isLoading = false;
               });
               Navigator.push(
-                  context, MaterialPageRoute(builder: (_) => Mentorship()));
+                  context, MaterialPageRoute(builder: (_) => ChatRoomScreen()));
               print("Account Created Sucessfull");
             } else {
               print("Login Failed");
