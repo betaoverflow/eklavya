@@ -10,10 +10,7 @@ class SecondRoute extends StatelessWidget {
     return Scaffold(
         body: Center(
       child: Container(
-          decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(20),
-              image:
-                  DecorationImage(image: AssetImage(item), fit: BoxFit.cover))),
-    ));
+          child: Text("blah blah"),
+    )));
   }
 }
