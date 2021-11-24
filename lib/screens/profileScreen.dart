@@ -1,4 +1,4 @@
-import 'package:eklavya/screens/loginScreen.dart';
+import 'package:eklavya/screens/auth/loginScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:eklavya/config/constants.dart';
 import 'package:google_fonts/google_fonts.dart';
