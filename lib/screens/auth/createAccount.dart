@@ -97,7 +97,7 @@ class _CreateAccountState extends State<CreateAccount> {
                       child: Text(
                         "Login",
                         style: TextStyle(
-                          color: Colors.blue,
+                          color: Colors.black,
                           fontSize: 16,
                           fontWeight: FontWeight.w500,
                         ),
@@ -143,8 +143,8 @@ class _CreateAccountState extends State<CreateAccount> {
           height: size.height / 14,
           width: size.width / 1.2,
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(5),
-            color: Colors.blue,
+            borderRadius: BorderRadius.circular(20),
+            color: Colors.black,
           ),
           alignment: Alignment.center,
           child: Text(

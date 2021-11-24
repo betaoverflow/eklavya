@@ -91,7 +91,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     child: Text(
                       "Create Account",
                       style: TextStyle(
-                        color: Colors.blue,
+                        color: Colors.black,
                         fontSize: 16,
                         fontWeight: FontWeight.w500,
                       ),
@@ -134,8 +134,8 @@ class _LoginScreenState extends State<LoginScreen> {
           height: size.height / 14,
           width: size.width / 1.2,
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(5),
-            color: Colors.blue,
+            borderRadius: BorderRadius.circular(20),
+            color: Colors.black,
           ),
           alignment: Alignment.center,
           child: Text(
