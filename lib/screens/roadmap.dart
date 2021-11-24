@@ -97,8 +97,7 @@ class _RoadmapState extends State<Roadmap> {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) =>
-                                      SecondRoute(item: item)),
+                                  builder: (context) => TimelineScreen()),
                             );
                           },
                           child: Card(
