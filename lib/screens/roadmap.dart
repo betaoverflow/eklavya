@@ -104,12 +104,22 @@ class _RoadmapState extends State<Roadmap> {
                             color: Colors.transparent,
                             elevation: 0,
                             child: Container(
-                              decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(20),
-                                  image: DecorationImage(
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(20),
+                                    image: DecorationImage(
                                       image: AssetImage(item),
-                                      fit: BoxFit.cover)),
-                            ),
+                                      fit: BoxFit.cover,
+                                    )),
+                                child: Center(
+                                    child: Text(
+                                  'Web Development',
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 25,
+                                  ),
+                                  textAlign: TextAlign.center,
+                                ))),
                           ),
                         ))
                     .toList(),
