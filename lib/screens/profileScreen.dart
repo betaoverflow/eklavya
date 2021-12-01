@@ -121,7 +121,7 @@ class ProfilePage extends StatelessWidget {
         ]);
   }
 
-  Widget _achivment() {
+  Widget _achievment() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
@@ -129,15 +129,15 @@ class ProfilePage extends StatelessWidget {
             style: GoogleFonts.inter(
                 fontWeight: FontWeight.w600, fontSize: 15, height: 1.3)),
         SizedBox(height: 16),
-        _achivmentCard(),
+        _achievementCard(),
         SizedBox(height: 16),
-        _achivmentCard(),
+        _achievementCard(),
         SizedBox(height: 16),
       ],
     );
   }
 
-  Widget _achivmentCard() {
+  Widget _achievementCard() {
     return Container(
       padding: EdgeInsets.symmetric(vertical: 12, horizontal: 12),
       decoration: BoxDecoration(
@@ -198,7 +198,7 @@ class ProfilePage extends StatelessWidget {
                 SizedBox(height: 20),
                 _description(),
                 SizedBox(height: 40),
-                _achivment(),
+                _achievment(),
                 _button(context),
                 SizedBox(height: 20),
               ],
