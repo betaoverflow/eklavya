@@ -1,6 +1,11 @@
 import 'package:eklavya/screens/auth/Methods.dart';
 import 'package:eklavya/screens/chatRoom.dart';
 import 'package:flutter/material.dart';
+// ignore: import_of_legacy_library_into_null_safe
+import 'package:razorpay_flutter/razorpay_flutter.dart';
+
+import '../pricing.dart';
+
 
 class CreateAccount extends StatefulWidget {
   @override
@@ -12,6 +17,57 @@ class _CreateAccountState extends State<CreateAccount> {
   final TextEditingController _email = TextEditingController();
   final TextEditingController _password = TextEditingController();
   bool isLoading = false;
+
+  late Razorpay _razorpay;
+
+  @override
+  void initState() {
+    super.initState();
+    initializeRazorPay();
+  }
+
+  void initializeRazorPay() {
+    _razorpay = Razorpay();
+    _razorpay.on(Razorpay.EVENT_PAYMENT_SUCCESS, _handlePaymentSuccess);
+    _razorpay.on(Razorpay.EVENT_PAYMENT_ERROR, _handlePaymentError);
+    _razorpay.on(Razorpay.EVENT_EXTERNAL_WALLET, _handleExternalWallet);
+  }
+
+  void launchRazorPay() {
+    int amountToPay = 150;
+
+    var options = {
+      'key': 'rzp_test_ebW9jXPs7U6lyc',
+      'amount': "$amountToPay",
+      'currency': "INR",
+      'name': "Aabhas",
+      'description': "Eklavya Premium",
+      'prefill': {'contact': "9024335853", 'email': "aabhassao0@gmail.com"}
+    };
+
+    try {
+      _razorpay.open(options);
+    } catch (e) {
+      print("Error: $e");
+    }
+  }
+
+  void _handlePaymentSuccess(PaymentSuccessResponse response) {
+    print("Payment Successful");
+
+    print(
+        "${response.orderId} \n${response.paymentId} \n${response.signature}");
+  }
+
+  void _handlePaymentError(PaymentFailureResponse response) {
+    print("Payment Failed");
+
+    print("${response.code}\n${response.message}");
+  }
+
+  void _handleExternalWallet(ExternalWalletResponse response) {
+    print("Payment Failed");
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -54,7 +110,7 @@ class _CreateAccountState extends State<CreateAccount> {
                   Container(
                     width: size.width / 1.1,
                     child: Text(
-                      "Create Account to Contiue!",
+                      "Create Account to Continue!",
                       style: TextStyle(
                         color: Colors.grey[700],
                         fontSize: 20,
@@ -113,6 +169,11 @@ class _CreateAccountState extends State<CreateAccount> {
   Widget customButton(Size size) {
     return GestureDetector(
       onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => Pricing()),
+        );
+
         if (_name.text.isNotEmpty &&
             _email.text.isNotEmpty &&
             _password.text.isNotEmpty) {
@@ -120,21 +181,28 @@ class _CreateAccountState extends State<CreateAccount> {
             isLoading = true;
           });
 
-          createAccount(_name.text, _email.text, _password.text).then((user) {
-            if (user != null) {
-              setState(() {
-                isLoading = false;
-              });
-              Navigator.push(
-                  context, MaterialPageRoute(builder: (_) => ChatRoomScreen()));
-              print("Account Created Sucessfull");
-            } else {
-              print("Login Failed");
-              setState(() {
-                isLoading = false;
-              });
-            }
-          });
+
+
+          // createAccount(_name.text, _email.text, _password.text).then((user) {
+          //   if (user != null) {
+          //     setState(() {
+          //       isLoading = false;
+          //     });
+          //     // Navigator.push(
+          //     //   context,
+          //     //   MaterialPageRoute(builder: (context) => Pricing()),
+          //     // );
+          //     // launchRazorPay();
+          //     // Navigator.push(
+          //     //     context, MaterialPageRoute(builder: (_) => ChatRoomScreen()));
+          //     // print("Account Created Successful");
+          //   } else {
+          //     print("Login Failed");
+          //     setState(() {
+          //       isLoading = false;
+          //     });
+          //   }
+          // });
         } else {
           print("Please enter Fields");
         }
@@ -175,5 +243,11 @@ class _CreateAccountState extends State<CreateAccount> {
         ),
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    _razorpay.clear();
+    super.dispose();
   }
 }
