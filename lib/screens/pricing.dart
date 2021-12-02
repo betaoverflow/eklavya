@@ -1,7 +1,9 @@
-import 'package:eklavya/screens/auth/loginScreen.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:eklavya/screens/chatRoom.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+
 // ignore: import_of_legacy_library_into_null_safe
 import 'package:razorpay_flutter/razorpay_flutter.dart';
 
@@ -13,25 +15,17 @@ class Pricing extends StatefulWidget {
 }
 
 class _PricingState extends State<Pricing> {
-
   int _selectedIndex = 0;
 
   final items = [
-    {
-      "title": "Silver",
-      "price": "150"
-    },
-    {
-      "title": "Gold",
-      "price": "300"
-    },
-    {
-      "title": "Platinum",
-      "price": "500"
-    },
+    {"title": "Silver", "price": "150"},
+    {"title": "Gold", "price": "300"},
+    {"title": "Platinum", "price": "500"},
   ];
 
   late Razorpay _razorpay;
+  FirebaseFirestore _firestore = FirebaseFirestore.instance;
+  FirebaseAuth _auth = FirebaseAuth.instance;
 
   @override
   void initState() {
@@ -46,14 +40,21 @@ class _PricingState extends State<Pricing> {
     _razorpay.on(Razorpay.EVENT_EXTERNAL_WALLET, _handleExternalWallet);
   }
 
-  void launchRazorPay() {
-    int amountToPay = 150 * 100;
+  void launchRazorPay() async {
+    int amountToPay = int.parse(items[_selectedIndex]["price"]!) * 100;
+
+    final name = await _firestore
+        .collection('users')
+        .doc(_auth.currentUser!.uid)
+        .get()
+        .then((snapshot) => snapshot.data()!["name"]);
+    print(name);
 
     var options = {
       'key': 'rzp_test_ebW9jXPs7U6lyc',
       'amount': "$amountToPay",
       'currency': "INR",
-      'name': "Aabhas",
+      'name': "$name",
       'description': "Eklavya Premium",
       'prefill': {'contact': "9024335853", 'email': "aabhassao0@gmail.com"}
     };
@@ -65,15 +66,20 @@ class _PricingState extends State<Pricing> {
     }
   }
 
-  void _handlePaymentSuccess(PaymentSuccessResponse response) {
+  void _handlePaymentSuccess(PaymentSuccessResponse response) async {
     print("Payment Successful");
 
     print(
         "${response.orderId} \n${response.paymentId} \n${response.signature}");
     if (response.paymentId != null) {
-      Navigator.push(context,
-        MaterialPageRoute(builder: (context) => ChatRoomScreen())
-      );
+      final tier = items[_selectedIndex]["title"];
+      await _firestore
+          .collection('users')
+          .doc(_auth.currentUser!.uid)
+          .update({"plan": "$tier"});
+
+      Navigator.push(
+          context, MaterialPageRoute(builder: (context) => ChatRoomScreen()));
     }
   }
 
@@ -86,7 +92,6 @@ class _PricingState extends State<Pricing> {
   void _handleExternalWallet(ExternalWalletResponse response) {
     print("Payment Failed");
   }
-
 
   Widget _button(context) {
     double width = MediaQuery.of(context).size.width;
@@ -139,8 +144,7 @@ class _PricingState extends State<Pricing> {
                       });
                     },
                   );
-                }
-            ),
+                }),
           ),
           SizedBox(height: 48),
           _button(context),

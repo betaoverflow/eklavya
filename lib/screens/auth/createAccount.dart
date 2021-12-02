@@ -115,11 +115,6 @@ class _CreateAccountState extends State<CreateAccount> {
   Widget customButton(Size size) {
     return GestureDetector(
       onTap: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => Pricing()),
-        );
-
         if (_name.text.isNotEmpty &&
             _email.text.isNotEmpty &&
             _password.text.isNotEmpty) {
@@ -127,26 +122,22 @@ class _CreateAccountState extends State<CreateAccount> {
             isLoading = true;
           });
 
-          // createAccount(_name.text, _email.text, _password.text).then((user) {
-          //   if (user != null) {
-          //     setState(() {
-          //       isLoading = false;
-          //     });
-          //     // Navigator.push(
-          //     //   context,
-          //     //   MaterialPageRoute(builder: (context) => Pricing()),
-          //     // );
-          //     // launchRazorPay();
-          //     // Navigator.push(
-          //     //     context, MaterialPageRoute(builder: (_) => ChatRoomScreen()));
-          //     // print("Account Created Successful");
-          //   } else {
-          //     print("Login Failed");
-          //     setState(() {
-          //       isLoading = false;
-          //     });
-          //   }
-          // });
+          createAccount(_name.text, _email.text, _password.text).then((user) {
+            if (user != null) {
+              setState(() {
+                isLoading = false;
+              });
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => Pricing()),
+              );
+            } else {
+              print("Login Failed");
+              setState(() {
+                isLoading = false;
+              });
+            }
+          });
         } else {
           print("Please enter Fields");
         }
