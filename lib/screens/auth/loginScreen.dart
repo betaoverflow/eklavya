@@ -3,6 +3,8 @@ import 'package:eklavya/screens/auth/Methods.dart';
 import 'package:eklavya/screens/chatRoom.dart';
 import 'package:flutter/material.dart';
 
+import 'checkPayment.dart';
+
 class LoginScreen extends StatefulWidget {
   @override
   _LoginScreenState createState() => _LoginScreenState();
@@ -117,8 +119,7 @@ class _LoginScreenState extends State<LoginScreen> {
               setState(() {
                 isLoading = false;
               });
-              Navigator.push(
-                  context, MaterialPageRoute(builder: (_) => ChatRoomScreen()));
+              checkPaymentStatusAndRedirect(context);
             } else {
               print("Login Failed");
               setState(() {

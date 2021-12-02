@@ -1,4 +1,9 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:eklavya/screens/auth/checkPayment.dart';
 import 'package:eklavya/screens/auth/loginScreen.dart';
+import 'package:eklavya/screens/chatRoom.dart';
+import 'package:eklavya/screens/pricing.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:eklavya/config/constants.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -7,9 +12,7 @@ class ProfilePage extends StatelessWidget {
   const ProfilePage({Key? key, this.model}) : super(key: key);
   final model;
 
-  Widget _cards(
-    context,
-  ) {
+  Widget _cards(context,) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 12),
       child: GestureDetector(
@@ -150,25 +153,24 @@ class ProfilePage extends StatelessWidget {
             width: 40, alignment: Alignment.center, child: Icon(Icons.people)),
         title: Text("Mentored 100+ Students",
             style:
-                GoogleFonts.inter(fontWeight: FontWeight.w600, fontSize: 15)),
+            GoogleFonts.inter(fontWeight: FontWeight.w600, fontSize: 15)),
         subtitle: Text(Constants.description.substring(0, 90),
             style:
-                GoogleFonts.inter(fontWeight: FontWeight.w400, fontSize: 12)),
+            GoogleFonts.inter(fontWeight: FontWeight.w400, fontSize: 12)),
       ),
     );
   }
 
   Widget _button(context) {
+    final _auth = FirebaseAuth.instance;
+    final _firestore = FirebaseFirestore.instance;
     return TextButton(
       style: TextButton.styleFrom(
           backgroundColor: Colors.black,
           shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(20))),
+          RoundedRectangleBorder(borderRadius: BorderRadius.circular(20))),
       onPressed: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => LoginScreen()),
-        );
+        checkPaymentStatusAndRedirect(context);
       },
       child: Container(
         height: 60,

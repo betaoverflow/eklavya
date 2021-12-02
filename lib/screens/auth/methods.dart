@@ -21,6 +21,7 @@ Future<User?> createAccount(String name, String email, String password) async {
       "email": email,
       "status": "Unavailable",
       "uid": _auth.currentUser!.uid,
+      "plan": "Free",
     });
 
     return userCredential.user;

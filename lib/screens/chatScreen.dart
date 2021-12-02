@@ -256,12 +256,14 @@ class ShowImage extends StatelessWidget {
     final Size size = MediaQuery.of(context).size;
 
     return Scaffold(
+      backgroundColor: Colors.black,
       body: Container(
         height: size.height,
         width: size.width,
         color: Colors.black,
         child: Image.network(imageUrl),
       ),
+
     );
   }
 }
