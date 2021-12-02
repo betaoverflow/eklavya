@@ -26,16 +26,16 @@ class ProfilePage extends StatelessWidget {
               height: 85,
               width: 85,
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10),
+                borderRadius: BorderRadius.circular(50),
                 image: DecorationImage(
                   image: AssetImage(model.image),
                 ),
                 boxShadow: <BoxShadow>[
                   BoxShadow(
-                    blurRadius: 10,
-                    color: Colors.grey.shade400,
-                    offset: Offset(4, 4),
-                  ),
+                    blurRadius: 12,
+                    color: Colors.grey.shade700,
+                    offset: Offset(-1, 2),
+                  )
                 ],
               ),
             ),
