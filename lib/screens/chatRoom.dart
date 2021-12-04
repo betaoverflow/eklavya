@@ -3,6 +3,7 @@ import 'package:eklavya/screens/chatScreen.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class ChatRoomScreen extends StatefulWidget {
   @override
@@ -70,13 +71,36 @@ class _ChatRoomScreenState extends State<ChatRoomScreen>
     });
   }
 
+  Widget _button(context) {
+    double width = MediaQuery.of(context).size.width;
+
+    return TextButton(
+      style: TextButton.styleFrom(
+          backgroundColor: Colors.black,
+          shape:
+          RoundedRectangleBorder(borderRadius: BorderRadius.circular(20))),
+      onPressed: onSearch,
+      child: Container(
+        height: 40,
+        width: width * 0.85,
+        alignment: Alignment.center,
+        child: Text("Search",
+            style: GoogleFonts.inter(
+              color: Colors.white,
+              fontWeight: FontWeight.w500,
+            )),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
 
     return Scaffold(
       appBar: AppBar(
-        title: Text("Home Screen"),
+        title: Text("Chat Room"),
+        backgroundColor: Colors.black,
         actions: [
           IconButton(icon: Icon(Icons.logout), onPressed: () => logOut(context))
         ],
@@ -104,7 +128,7 @@ class _ChatRoomScreenState extends State<ChatRoomScreen>
                     child: TextField(
                       controller: _search,
                       decoration: InputDecoration(
-                        hintText: "Search",
+                        hintText: "Enter email of mentor",
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10),
                         ),
@@ -115,10 +139,7 @@ class _ChatRoomScreenState extends State<ChatRoomScreen>
                 SizedBox(
                   height: size.height / 50,
                 ),
-                ElevatedButton(
-                  onPressed: onSearch,
-                  child: Text("Search"),
-                ),
+                _button(context),
                 SizedBox(
                   height: size.height / 30,
                 ),

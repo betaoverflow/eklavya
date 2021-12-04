@@ -90,17 +90,18 @@ class Mentorship extends StatelessWidget {
               height: 75,
               width: 75,
               decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(15),
-                  image: DecorationImage(
-                    image: AssetImage(model.image),
-                  ),
-                  boxShadow: <BoxShadow>[
-                    BoxShadow(
-                      blurRadius: 10,
-                      color: Colors.grey.shade400,
-                      offset: Offset(4, 4),
-                    )
-                  ]),
+                borderRadius: BorderRadius.circular(50),
+                image: DecorationImage(
+                  image: AssetImage(model.image),
+                ),
+                boxShadow: <BoxShadow>[
+                  BoxShadow(
+                    blurRadius: 12,
+                    color: Colors.grey.shade700,
+                    offset: Offset(-1, 2),
+                  )
+                ],
+              ),
             ),
             SizedBox(
               width: 12,

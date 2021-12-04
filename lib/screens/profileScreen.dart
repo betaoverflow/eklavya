@@ -1,4 +1,9 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:eklavya/screens/auth/checkPayment.dart';
 import 'package:eklavya/screens/auth/loginScreen.dart';
+import 'package:eklavya/screens/chatRoom.dart';
+import 'package:eklavya/screens/pricing.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:eklavya/config/constants.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -7,9 +12,7 @@ class ProfilePage extends StatelessWidget {
   const ProfilePage({Key? key, this.model}) : super(key: key);
   final model;
 
-  Widget _cards(
-    context,
-  ) {
+  Widget _cards(context,) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 12),
       child: GestureDetector(
@@ -23,16 +26,16 @@ class ProfilePage extends StatelessWidget {
               height: 85,
               width: 85,
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10),
+                borderRadius: BorderRadius.circular(50),
                 image: DecorationImage(
                   image: AssetImage(model.image),
                 ),
                 boxShadow: <BoxShadow>[
                   BoxShadow(
-                    blurRadius: 10,
-                    color: Colors.grey.shade400,
-                    offset: Offset(4, 4),
-                  ),
+                    blurRadius: 12,
+                    color: Colors.grey.shade700,
+                    offset: Offset(-1, 2),
+                  )
                 ],
               ),
             ),
@@ -121,7 +124,7 @@ class ProfilePage extends StatelessWidget {
         ]);
   }
 
-  Widget _achivment() {
+  Widget _achievment() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
@@ -129,15 +132,15 @@ class ProfilePage extends StatelessWidget {
             style: GoogleFonts.inter(
                 fontWeight: FontWeight.w600, fontSize: 15, height: 1.3)),
         SizedBox(height: 16),
-        _achivmentCard(),
+        _achievementCard(),
         SizedBox(height: 16),
-        _achivmentCard(),
+        _achievementCard(),
         SizedBox(height: 16),
       ],
     );
   }
 
-  Widget _achivmentCard() {
+  Widget _achievementCard() {
     return Container(
       padding: EdgeInsets.symmetric(vertical: 12, horizontal: 12),
       decoration: BoxDecoration(
@@ -150,25 +153,24 @@ class ProfilePage extends StatelessWidget {
             width: 40, alignment: Alignment.center, child: Icon(Icons.people)),
         title: Text("Mentored 100+ Students",
             style:
-                GoogleFonts.inter(fontWeight: FontWeight.w600, fontSize: 15)),
+            GoogleFonts.inter(fontWeight: FontWeight.w600, fontSize: 15)),
         subtitle: Text(Constants.description.substring(0, 90),
             style:
-                GoogleFonts.inter(fontWeight: FontWeight.w400, fontSize: 12)),
+            GoogleFonts.inter(fontWeight: FontWeight.w400, fontSize: 12)),
       ),
     );
   }
 
   Widget _button(context) {
+    final _auth = FirebaseAuth.instance;
+    final _firestore = FirebaseFirestore.instance;
     return TextButton(
       style: TextButton.styleFrom(
           backgroundColor: Colors.black,
           shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(20))),
+          RoundedRectangleBorder(borderRadius: BorderRadius.circular(20))),
       onPressed: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => LoginScreen()),
-        );
+        checkPaymentStatusAndRedirect(context);
       },
       child: Container(
         height: 60,
@@ -198,7 +200,7 @@ class ProfilePage extends StatelessWidget {
                 SizedBox(height: 20),
                 _description(),
                 SizedBox(height: 40),
-                _achivment(),
+                _achievment(),
                 _button(context),
                 SizedBox(height: 20),
               ],

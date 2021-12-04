@@ -2,6 +2,8 @@ import 'package:eklavya/screens/auth/Methods.dart';
 import 'package:eklavya/screens/chatRoom.dart';
 import 'package:flutter/material.dart';
 
+import '../pricing.dart';
+
 class CreateAccount extends StatefulWidget {
   @override
   _CreateAccountState createState() => _CreateAccountState();
@@ -54,7 +56,7 @@ class _CreateAccountState extends State<CreateAccount> {
                   Container(
                     width: size.width / 1.1,
                     child: Text(
-                      "Create Account to Contiue!",
+                      "Create Account to Continue!",
                       style: TextStyle(
                         color: Colors.grey[700],
                         fontSize: 20,
@@ -126,8 +128,9 @@ class _CreateAccountState extends State<CreateAccount> {
                 isLoading = false;
               });
               Navigator.push(
-                  context, MaterialPageRoute(builder: (_) => ChatRoomScreen()));
-              print("Account Created Sucessfull");
+                context,
+                MaterialPageRoute(builder: (context) => Pricing()),
+              );
             } else {
               print("Login Failed");
               setState(() {
