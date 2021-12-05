@@ -1,5 +1,7 @@
+import 'dart:convert';
 import 'package:eklavya/screens/timeline.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class Roadmap extends StatefulWidget {
   const Roadmap({Key? key}) : super(key: key);
@@ -9,18 +11,18 @@ class Roadmap extends StatefulWidget {
 }
 
 class _RoadmapState extends State<Roadmap> {
-  final List<String> _listItem = [
-    'assets/one.jfif',
-    'assets/two.jfif',
-    'assets/three.jfif',
-    'assets/four.jfif',
-    'assets/five.jfif',
-    'assets/six.jfif',
-    'assets/seven.jpg',
-    'assets/eight.jfif',
-    'assets/nine.png',
-    'assets/ten.png'
-  ];
+  get index => null;
+  List data = [];
+  Future<void> readJson() async {
+    var jsonText = await rootBundle.loadString('assets/roadmap.json');
+    setState(() => data = json.decode(jsonText));
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    this.readJson();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -87,52 +89,57 @@ class _RoadmapState extends State<Roadmap> {
                 height: 20,
               ),
               Expanded(
-                  child: GridView.count(
-                crossAxisCount: 2,
-                crossAxisSpacing: 10,
-                mainAxisSpacing: 10,
-                children: _listItem
-                    .map((item) => GestureDetector(
-                          onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => TimelineScreen()),
-                            );
-                          },
-                          child: Card(
-                            color: Colors.transparent,
-                            elevation: 0,
-                            child: Container(
-                                decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(20),
-                                    image: DecorationImage(
-                                      image: AssetImage(item),
-                                      fit: BoxFit.cover,
-                                    )),
-                                child: Center(
-                                    child: Text(
-                                  'Web Development',
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 25,
-                                  ),
-                                  textAlign: TextAlign.center,
-                                ))),
-                          ),
-                        ))
-                    .toList(),
-              ))
+                  child: new GridView.builder(
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2,
+                    crossAxisSpacing: 10,
+                    childAspectRatio: 1,
+                    mainAxisSpacing: 10),
+                shrinkWrap: true,
+                itemCount: data.length,
+                itemBuilder: (BuildContext context, int index) {
+                  var name = data[index]['name'];
+                  var image = data[index]['image'];
+                  var roadmap = data[index]['roadmap'];
+                  return new Expanded(
+                    child: new GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) =>
+                                  TimelineScreen(data: roadmap)),
+                        );
+                      },
+                      child: new Card(
+                        color: Colors.transparent,
+                        elevation: 0,
+                        child: new Container(
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(20),
+                                image: DecorationImage(
+                                  image: AssetImage(image),
+                                  fit: BoxFit.cover,
+                                )),
+                            child: new Center(
+                                child: new Text(
+                              name,
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 25,
+                              ),
+                              textAlign: TextAlign.center,
+                            ))),
+                      ),
+                    ),
+                  );
+                },
+              )),
             ],
           ),
         ),
       ),
     );
-  }
-
-  _onLocationTap(BuildContext context, String locationID) {
-    // TODO later in this lesson, navigation!
-    print('do something');
   }
 }

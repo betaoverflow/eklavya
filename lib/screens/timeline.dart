@@ -4,12 +4,9 @@ import 'package:flutter_svg/flutter_svg.dart';
 // ignore: import_of_legacy_library_into_null_safe
 import 'package:timeline_tile/timeline_tile.dart';
 
-class TimelineScreen extends StatefulWidget {
-  @override
-  _TimelineScreenState createState() => _TimelineScreenState();
-}
-
-class _TimelineScreenState extends State<TimelineScreen> {
+class TimelineScreen extends StatelessWidget {
+  final data;
+  TimelineScreen({this.data});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,7 +31,7 @@ class _TimelineScreenState extends State<TimelineScreen> {
                       height: 5,
                     ),
                     Text(
-                      " Heading 1",
+                      data['heading'],
                       style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 15,
@@ -44,7 +41,7 @@ class _TimelineScreenState extends State<TimelineScreen> {
                       height: 5,
                     ),
                     Text(
-                      "Description",
+                      data['desc'],
                       style: TextStyle(fontSize: 12, color: Colors.black),
                     )
                   ],
