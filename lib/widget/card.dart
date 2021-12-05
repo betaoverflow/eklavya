@@ -5,10 +5,10 @@ class JobCard extends StatelessWidget {
 
   const JobCard(
       {Key? key,
-      this.logoUrl = "assets/uberLogo.jpg",
+      this.logoUrl = "assets/juspay1.png",
       this.job = "Software Developer Intern",
       this.time = "19th November",
-      this.company = "Uber"})
+      this.company = "Juspay"})
       : super(key: key);
 
   @override
@@ -22,12 +22,13 @@ class JobCard extends StatelessWidget {
             height: 203,
             width: MediaQuery.of(context).size.width,
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10),
+              borderRadius: BorderRadius.circular(12),
               border: Border.all(
                 color: Color(0xff707070),
                 width: 1,
               ),
               image:
+              
                   DecorationImage(image: AssetImage(logoUrl), fit: BoxFit.fill),
             ),
             child: Align(
@@ -36,10 +37,11 @@ class JobCard extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   Container(
+                    
                     width: MediaQuery.of(context).size.width,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(11),
-                      color: Colors.black.withOpacity(0.33),
+                      color: Colors.black,
                     ),
                     padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
                     child: Text(
