@@ -2,59 +2,171 @@
   {
     "id": "p1",
     "name": "Web Development",
-    "description": "Description 1",
     "image": "assets/one.jfif",
     "roadmap":{
-      "heading":"hehe",
-      "desc":"blah"
+      "head1":"Basics of HTML",
+      "desc1":"Youtube Video",
+      "head2":"Best Practices for HTML",
+      "desc2":"Blog",
+      "head3":"Introduction to CSS",
+      "desc3":"Youtube Video",
+      "head4":"Namaste Javascript",
+      "desc4":"Youtube Video",
+      "head5":"Create your first project",
+      "desc5":"Youtube Video"
     }
   },
   {
     "id": "p2",
     "name": "App Development",
-    "description": "Description 2",
-    "image": "assets/two.jfif"
+    "image": "assets/two.jfif",
+    "roadmap":{
+      "head1":"Basics of Flutter",
+      "desc1":"Youtube Video",
+      "head2":"Flutter Layouts",
+      "desc2":"Blog",
+      "head3":"First App in Flutter",
+      "desc3":"Youtube Video",
+      "head4":"Weight Tracker in Flutter",
+      "desc4":"Youtube Video",
+      "head5":"Tips and tricks",
+      "desc5":"Youtube Video"
+    }
   },
   {
     "id": "p3",
-    "name": "Item 3",
-    "description": "Description 3",
-    "image": "assets/three.jfif"
+    "name": "Data Structures",
+    "image": "assets/three.jfif",
+    "roadmap":{
+      "head1":"Basics of HTML",
+      "desc1":"Youtube Video",
+      "head2":"Best Practices for HTML",
+      "desc2":"Blog",
+      "head3":"Introduction to CSS",
+      "desc3":"Youtube Video",
+      "head4":"Namaste Javascript",
+      "desc4":"Youtube Video",
+      "head5":"Create your first project",
+      "desc5":"Youtube Video"
+    }
   },
   {
     "id": "p4",
-    "name": "Web Development",
-    "description": "Description 1",
-    "image": "assets/one.jfif"
+    "name": "Machine Learning",
+    "image": "assets/four.jfif",
+    "roadmap":{
+      "head1":"Basics of HTML",
+      "desc1":"Youtube Video",
+      "head2":"Best Practices for HTML",
+      "desc2":"Blog",
+      "head3":"Introduction to CSS",
+      "desc3":"Youtube Video",
+      "head4":"Namaste Javascript",
+      "desc4":"Youtube Video",
+      "head5":"Create your first project",
+      "desc5":"Youtube Video"
+    }
   },
   {
     "id": "p5",
-    "name": "App Development",
-    "description": "Description 2",
-    "image": "assets/two.jfif"
+    "name": "Algorithms",
+    "image": "assets/five.jfif",
+    "roadmap":{
+      "head1":"Basics of HTML",
+      "desc1":"Youtube Video",
+      "head2":"Best Practices for HTML",
+      "desc2":"Blog",
+      "head3":"Introduction to CSS",
+      "desc3":"Youtube Video",
+      "head4":"Namaste Javascript",
+      "desc4":"Youtube Video",
+      "head5":"Create your first project",
+      "desc5":"Youtube Video"
+    }
   },
   {
     "id": "p6",
-    "name": "Item 3",
-    "description": "Description 3",
-    "image": "assets/three.jfif"
+    "name": "Artificial Intelligence",
+    "image": "assets/six.jfif",
+    "roadmap":{
+      "head1":"Basics of HTML",
+      "desc1":"Youtube Video",
+      "head2":"Best Practices for HTML",
+      "desc2":"Blog",
+      "head3":"Introduction to CSS",
+      "desc3":"Youtube Video",
+      "head4":"Namaste Javascript",
+      "desc4":"Youtube Video",
+      "head5":"Create your first project",
+      "desc5":"Youtube Video"
+    }
   },
   {
     "id": "p7",
-    "name": "Web Development",
-    "description": "Description 1",
-    "image": "assets/one.jfif"
+    "name": "Augmented Reality",
+    "image": "assets/seven.jpg",
+    "roadmap":{
+      "head1":"Basics of HTML",
+      "desc1":"Youtube Video",
+      "head2":"Best Practices for HTML",
+      "desc2":"Blog",
+      "head3":"Introduction to CSS",
+      "desc3":"Youtube Video",
+      "head4":"Namaste Javascript",
+      "desc4":"Youtube Video",
+      "head5":"Create your first project",
+      "desc5":"Youtube Video"
+    }
   },
   {
     "id": "p8",
-    "name": "App Development",
-    "description": "Description 2",
-    "image": "assets/two.jfif"
+    "name": "Game Development",
+    "image": "assets/eight.jfif",
+    "roadmap":{
+      "head1":"Basics of HTML",
+      "desc1":"Youtube Video",
+      "head2":"Best Practices for HTML",
+      "desc2":"Blog",
+      "head3":"Introduction to CSS",
+      "desc3":"Youtube Video",
+      "head4":"Namaste Javascript",
+      "desc4":"Youtube Video",
+      "head5":"Create your first project",
+      "desc5":"Youtube Video"
+    }
   },
   {
     "id": "p9",
-    "name": "Item 3",
-    "description": "Description 3",
-    "image": "assets/three.jfif"
+    "name": "Blockchain",
+    "image": "assets/nine.png",
+    "roadmap":{
+      "head1":"Basics of HTML",
+      "desc1":"Youtube Video",
+      "head2":"Best Practices for HTML",
+      "desc2":"Blog",
+      "head3":"Introduction to CSS",
+      "desc3":"Youtube Video",
+      "head4":"Namaste Javascript",
+      "desc4":"Youtube Video",
+      "head5":"Create your first project",
+      "desc5":"Youtube Video"
+    }
+  },
+  {
+    "id": "p10",
+    "name": "Data Science",
+    "image": "assets/ten.png",
+    "roadmap":{
+      "head1":"Basics of HTML",
+      "desc1":"Youtube Video",
+      "head2":"Best Practices for HTML",
+      "desc2":"Blog",
+      "head3":"Introduction to CSS",
+      "desc3":"Youtube Video",
+      "head4":"Namaste Javascript",
+      "desc4":"Youtube Video",
+      "head5":"Create your first project",
+      "desc5":"Youtube Video"
+    }
   }
 ]

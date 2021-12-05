@@ -10,7 +10,7 @@ class TimelineScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[10],
+      backgroundColor: Colors.grey[300],
       body: Center(
         child: Column(
           mainAxisSize: MainAxisSize.min,
@@ -31,7 +31,7 @@ class TimelineScreen extends StatelessWidget {
                       height: 5,
                     ),
                     Text(
-                      data['heading'],
+                      data['head1'],
                       style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 15,
@@ -41,7 +41,7 @@ class TimelineScreen extends StatelessWidget {
                       height: 5,
                     ),
                     Text(
-                      data['desc'],
+                      data['desc1'],
                       style: TextStyle(fontSize: 12, color: Colors.black),
                     )
                   ],
@@ -63,7 +63,7 @@ class TimelineScreen extends StatelessWidget {
                       height: 5,
                     ),
                     Text(
-                      "Heading 1",
+                      data['head2'],
                       textAlign: TextAlign.center,
                       style: TextStyle(
                           fontWeight: FontWeight.bold,
@@ -74,7 +74,7 @@ class TimelineScreen extends StatelessWidget {
                       height: 5,
                     ),
                     Text(
-                      "Descp",
+                      data['desc2'],
                       style: TextStyle(fontSize: 12, color: Colors.black),
                     )
                   ],
@@ -96,7 +96,7 @@ class TimelineScreen extends StatelessWidget {
                       height: 5,
                     ),
                     Text(
-                      "Heading 1",
+                      data['head3'],
                       style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 15,
@@ -106,7 +106,7 @@ class TimelineScreen extends StatelessWidget {
                       height: 5,
                     ),
                     Text(
-                      "Descp 1",
+                      data['desc3'],
                       style: TextStyle(fontSize: 12, color: Colors.black),
                     )
                   ],
@@ -128,7 +128,7 @@ class TimelineScreen extends StatelessWidget {
                       height: 5,
                     ),
                     Text(
-                      "heading 1",
+                      data['head4'],
                       style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 15,
@@ -138,7 +138,7 @@ class TimelineScreen extends StatelessWidget {
                       height: 5,
                     ),
                     Text(
-                      "Descp 1",
+                      data['desc4'],
                       style: TextStyle(fontSize: 12, color: Colors.black),
                     )
                   ],
@@ -161,7 +161,7 @@ class TimelineScreen extends StatelessWidget {
                       height: 5,
                     ),
                     Text(
-                      "Heading 1",
+                      data['head5'],
                       style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 15,
@@ -171,7 +171,7 @@ class TimelineScreen extends StatelessWidget {
                       height: 5,
                     ),
                     Text(
-                      "Descp 1",
+                      data['desc5'],
                       style: TextStyle(fontSize: 12, color: Colors.black),
                     )
                   ],
